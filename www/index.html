@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Gospel Study</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>		
+		<!----------common js----------->
+		<script src="js/common.js"></script>	
+	</head>
+	
+	<body>	
+		<div data-role="page" class="jqm-demos jqm-page jqm-card" id="panel-data" data-url="panel-data">        
+			<div data-role="header" class="jqm-header">                
+				<header class="gosp_header">
+					<div class="arrows">
+						<button class="btn"><span class="fa fa-chevron-left"></span></button>
+						<button class="btn"><span class="fa fa-chevron-right"></span></button>
+					</div>
+					<div class="others">
+						<button class="btn" onclick="bookmark_url();"><span class="fa fa-star"></span></button>
+						<button class="btn" onclick="show_all_bookmark();"><span class="fa fa-bookmark"></span></button>
+						<button class="btn btn-search"><span class="fa fa-search"></span></button>
+					</div>
+					<h1 class="title">Gospel Study</h1>
+					<div class="clr"></div>
+					<div class="search-panel" style="display:none;">
+						<div class="search-wrapper">
+							<input placeholder="Type/Search" class="form-control" id="search_url" name="url" type="text">
+							<button type="button" class="btn" onClick="printData()" ><span class="fa fa-search"></span></button>
+						</div>
+					</div>
+				</header>
+				
+            </div><!-- /header -->
+				<div class="flash-message" style="display:none;"></div>
+			      <div class="contentArea container">
+				<div class="book-wrapper2">
+					<div class="book-page" id="book_page">
+						
+					</div>
+				</div>
+				</div>     
+            
+			
+		</div><!-- /page --> 
+		
+		
+		<script src="js/index.js"></script>
+
+</body>
+</html>
