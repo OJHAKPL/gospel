@@ -2,7 +2,7 @@
 	function printData() {
 		$('#book_page').html('<div style="margin-top:20%;text-align:center;padding-left:-4%;"><img src="images/ajax-loader-list.gif"></div>');
 		$.post(
-		"http://workplace.gisllp.com/jacob//web_home",
+		"http://workplace.gisllp.com/jacob/web_home",
 		{
 		  url: $("#search_url").val()
 		},
@@ -13,7 +13,11 @@
 			var htmlStr='';
 			if(dataArray.success){
 				localStorage.setItem('book_url',dataArray.book_url);
+				localStorage.setItem('book_url_old',dataArray.book_url);
 				$('#book_page').html(dataArray.success);
+				$('a').attr('onclick', 'change_url(this);');
+				$('a').removeAttr('target');
+				$( ".search-panel" ).hide();
 			} else {
 				if(dataArray.error){
 					$(".flash-message").show();
@@ -31,7 +35,7 @@
 	
 	function show_bookmark_url(myurl) {
 		$.post(
-		"http://workplace.gisllp.com/jacob//web_home",
+		"http://workplace.gisllp.com/jacob/web_home",
 		{
 		  url: myurl
 		},
@@ -43,6 +47,8 @@
 			if(dataArray.success){
 				localStorage.setItem('book_url',dataArray.book_url);
 				$('#book_page').html(dataArray.success);
+				$('a').attr('onclick', 'change_url(this);');
+				$('a').removeAttr('target');
 			} else {
 				if(dataArray.error){
 					$(".flash-message").show();
@@ -121,6 +127,10 @@
 	}
 	
 	
+	function show_main_url(){
+		var my_url = localStorage.getItem("book_url_old");
+		show_bookmark_url(my_url);
+	}
 	
 	function remove_bookmark(my_url){
 		//var my_url = localStorage.getItem('book_url');
@@ -139,7 +149,7 @@
 		}
 		
 		
-		console.log(new_urls);
+		//console.log(new_urls);
 		localStorage.setItem("bookmark_url_my", JSON.stringify(new_urls));
 		
 		if(my_url){
@@ -157,8 +167,26 @@
 	function onBackKeyDown() {
 		history.go(-1);
 	}
+	
+	function change_url(ele){
+		var href = jQuery(ele).attr('href');
+		if(href.substr(0,4) != 'http'){
+			if(href.substr(0,2) =='//'){
+				href = 'http:' + href;
+			}else if(href.substr(0,1) !='/'){
+				href = 'http://' + href;
+			}
+		}
+		jQuery(ele).attr('href' , 'javascript:void(0);');
+		if(href.substr(0,1) !='/'){
+			jQuery(ele).attr('onclick', 'show_bookmark_url("'+href+'");');
+			show_bookmark_url(href);
+		}
+	}
 
 	$(document).ready(function(){
+		$('a').attr('onclick', 'change_url(this);');
+		$('a').removeAttr('target');
 		$('.btn-search').click(function(){
 			$(this).toggleClass('active');
 			//$('.search-panel').toggle();
