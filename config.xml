@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.json" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.gospel" version="1.0.0">
   <name>Gospel Study</name>
   <description>Gospel Study</description>
   <author href="http://gospel.com" email="kapil.of.ojha@gmail.com">GISLLP Team</author>
@@ -10,9 +10,9 @@
   <preference name="webviewbounce" value="true"/>
   <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>
-	<preference name="StatusBarOverlaysWebView" value="false"/>
-	<preference name="StatusBarBackgroundColor" value="#000000"/>
-	<preference name="StatusBarStyle" value="lightcontent" />
+  <preference name="StatusBarOverlaysWebView" value="false"/>
+  <preference name="StatusBarBackgroundColor" value="#000000"/>
+  <preference name="StatusBarStyle" value="lightcontent" />
   <preference name="detect-data-types" value="true"/>
   <preference name="exit-on-suspend" value="false"/>
   <preference name="show-splash-screen-spinner" value="true"/>
