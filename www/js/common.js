@@ -1,5 +1,6 @@
 	/*--------- Login -----------*/  
 	function printData() {
+		
 		$('#book_page').html('<div style="margin-top:20%;text-align:center;padding-left:-4%;"><img src="images/ajax-loader-list.gif"></div>');
 		$.post(
 		"http://workplace.gisllp.com/jacob/web_home",
@@ -8,6 +9,7 @@
 		},
 		
 		function(data,status){
+		alert('hi');
 			var dataArray = jQuery.parseJSON(data);
 			
 			var htmlStr='';
