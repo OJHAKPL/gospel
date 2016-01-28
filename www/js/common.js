@@ -8,7 +8,7 @@
 		},
 		
 		function(data,status){
-		alert('hi');
+		
 			var dataArray = jQuery.parseJSON(data);
 			
 			var htmlStr='';
